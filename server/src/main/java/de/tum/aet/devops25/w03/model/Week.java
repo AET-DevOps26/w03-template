@@ -1,4 +1,4 @@
-package de.tum.aet.devops25.w04.model;
+package de.tum.aet.devops25.w03.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;

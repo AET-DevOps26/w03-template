@@ -23,8 +23,8 @@ This project includes:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/w04-template.git
-cd w04-template
+git clone https://github.com/yourusername/w03-template.git
+cd w03-template
 ```
 
 ### Client Setup
