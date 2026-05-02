@@ -1,0 +1,24 @@
+name: Deploy to VM
+
+on:
+  workflow_dispatch:
+    inputs:
+      image-tag:
+        description: "Image tag to deploy"
+        required: false
+        default: "latest"
+  workflow_run:
+    workflows: ["Build Docker Images"]
+    types: [completed]
+    branches: [main]
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    uses: ls1intum/.github/.github/workflows/deploy-docker-compose.yml@main
+    with:
+      environment: Prod
+      docker-compose-file: ./docker-compose.prod.yml
+      main-image-name: ${{ github.repository }}/server
+      image-tag: ${{ github.event.inputs.image-tag || 'latest' }}
+    secrets: inherit
