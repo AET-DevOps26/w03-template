@@ -26,6 +26,7 @@ jobs:
     name: Build Docker Images
     needs: test
     runs-on: ubuntu-latest
+    permissions: write-all
     strategy:
       matrix:
         service: [client, server]
