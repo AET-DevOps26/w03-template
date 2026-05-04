@@ -1,6 +1,10 @@
+version: '3.8'
+
 services:
   reverse-proxy:
     image: traefik:v3.3
+    environment:
+      - DOCKER_API_VERSION=1.45
     command:
       - "--providers.docker=true"
       - "--providers.docker.exposedByDefault=false"
@@ -21,8 +25,11 @@ services:
       - ./letsencrypt:/letsencrypt
 
   server:
-    image: ghcr.io/aet-devops26/w03-template/server:${IMAGE_TAG:-latest}
-    container_name: w03-server
+    image: ghcr.io/aet-devops26/w03-template/server:${SERVER_VERSION:-latest}
+    container_name: in-class-exercise-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     labels:
@@ -36,8 +43,11 @@ services:
     restart: unless-stopped
 
   client:
-    image: ghcr.io/aet-devops26/w03-template/client:${IMAGE_TAG:-latest}
-    container_name: w03-client
+    image: ghcr.io/aet-devops26/w03-template/client:${CLIENT_VERSION:-latest}
+    container_name: in-class-exercise-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
     environment:
       - PUBLIC_API_URL
     depends_on:
