@@ -21,7 +21,7 @@ services:
       - ./letsencrypt:/letsencrypt
 
   server:
-    image: ghcr.io/aet-devops25/w03-template/server:${IMAGE_TAG:-latest}
+    image: ghcr.io/aet-devops26/w03-template/server:${IMAGE_TAG:-latest}
     container_name: w03-server
     environment:
       - SPRING_PROFILES_ACTIVE=docker
@@ -36,7 +36,7 @@ services:
     restart: unless-stopped
 
   client:
-    image: ghcr.io/aet-devops25/w03-template/client:${IMAGE_TAG:-latest}
+    image: ghcr.io/aet-devops26/w03-template/client:${IMAGE_TAG:-latest}
     container_name: w03-client
     environment:
       - PUBLIC_API_URL

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: ghcr.io/aet-devops25/w03-template/client:latest
+          image: ghcr.io/aet-devops26/w03-template/client:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
