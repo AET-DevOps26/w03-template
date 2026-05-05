@@ -2,9 +2,7 @@ version: '3.8'
 
 services:
   reverse-proxy:
-    image: traefik:v3.3
-    environment:
-      - DOCKER_API_VERSION=1.45
+    image: traefik:v3.5
     command:
       - "--providers.docker=true"
       - "--providers.docker.exposedByDefault=false"
