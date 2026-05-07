@@ -1,8 +1,8 @@
-package de.tum.aet.devops25.w03.service;
+package de.tum.aet.devops26.w03.service;
 
-import de.tum.aet.devops25.w03.model.Day;
-import de.tum.aet.devops25.w03.model.Dish;
-import de.tum.aet.devops25.w03.model.Week;
+import de.tum.aet.devops26.w03.model.Day;
+import de.tum.aet.devops26.w03.model.Dish;
+import de.tum.aet.devops26.w03.model.Week;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
